@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="api()" id="add"> Fetch Api</button>
+    <div id="output"></div>
+    
+
+    <!-- <div>
+        <p>số ca nhiễm: {data.infected}</p>
+        <p>số ca hồi phục: {data.recovered}</p>
+        <p>số ca tử vong: {data.deceased}</p>
+        <p>đã điều trị: {data.treated}</p>
+    </div> -->
+
+    <script>
+        const api_url1 = "https://api.apify.com/v2/key-value-stores/ZsOpZgeg7dFS1rgfM/records/LATEST";
+        const api_url2 = "https://api.apify.com/v2/key-value-stores/p3nS2Q9TUn6kUOriJ/records/LATEST";
+        let dt
+        function api() {
+            let dt = fetch("https://api.apify.com/v2/key-value-stores/ZsOpZgeg7dFS1rgfM/records/LATEST")
+                .then (res => res.json())
+                .then((data) =>  {document.write(" số ca nhiễm: ", data.infected, "|");
+                                document.write(" số ca hồi phục: ", data.recovered, "|");
+                                document.write(" số ca tử vong: ", data.deceased, "|");
+                                document.write(" số ca đã điều trị: ", data.treated, "|");
+                
+//                 let list = data.results;
+//                    function () {
+//                        output = `
+//                        <div>
+//                            <p>số ca nhiễm: ${list.infected}</p>
+//                            <p>số ca hồi phục: ${list.recovered}</p>
+//                            <p>số ca tử vong: ${list.deceasedz}</p>
+//                           <p>đã điều trị: ${list.treated}</p>
+//                        </div>
+//                       `
+//                    }
+//                   document.getElementById('output').innerHTML+=output;
+
+                });
+        };
+        
+
+        
+        
+    </script>
+
+</body>
+</html>
